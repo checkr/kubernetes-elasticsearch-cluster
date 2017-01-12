@@ -32,7 +32,7 @@ spec:
           capabilities:
             add:
               - IPC_LOCK
-        image: quay.io/pires/docker-elasticsearch-kubernetes:5.1.1_1
+        image: docker.io/checkr/kubernetes-elasticsearch-cluster:latest
         imagePullPolicy: Always
         env:
         - name: NAMESPACE
@@ -59,6 +59,8 @@ spec:
       nodeSelector:
         kube.checkrhq.net/role: storage
       volumes:
-          - emptyDir:
-              medium: ""
-            name: "storage"
+        - emptyDir:
+            medium: ""
+          name: "storage"
+      imagePullSecrets:
+        - name: docker-io

@@ -44,6 +44,8 @@ RUN set -ex \
 COPY config ./config
 COPY run.sh /
 
+RUN /elasticsearch/bin/elasticsearch-plugin install x-pack
+
 VOLUME /elasticsearch/data
 
 EXPOSE 9200 9300
